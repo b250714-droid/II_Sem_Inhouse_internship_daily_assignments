@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pravah — The Flow Begins Jan 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Ambient flowing background -->
+<div class="river-bg" aria-hidden="true">
+  <svg class="river-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <path class="river-path river-path--1" d="M0,300 C 300,250 400,400 720,380 C 1040,360 1140,220 1440,280 L1440,900 L0,900 Z"></path>
+    <path class="river-path river-path--2" d="M0,420 C 320,390 420,520 720,500 C 1020,480 1140,360 1440,400 L1440,900 L0,900 Z"></path>
+    <path class="river-path river-path--3" d="M0,540 C 340,520 460,640 720,620 C 980,600 1120,500 1440,540 L1440,900 L0,900 Z"></path>
+  </svg>
+</div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="header-inner container">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34">
+          <path d="M4 24 C 10 14, 16 34, 20 22 C 24 10, 30 30, 36 18" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-text">PRAVAH<span class="brand-year">’27</span></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#countdown">Countdown</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#register">Register</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn btn-ghost" id="openLoginBtn" type="button">Log in</button>
+      <button class="btn btn-solid" id="openRegisterBtn" type="button">Register</button>
+      <span class="user-chip" id="userChip" hidden>
+        <span class="user-chip-dot" aria-hidden="true"></span>
+        <span id="userChipEmail">you@pravah.fest</span>
+        <button class="user-chip-logout" id="logoutBtn" type="button" title="Log out">Log out</button>
+      </span>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="#about">About</a>
+    <a href="#countdown">Countdown</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#register">Register</a>
+  </nav>
+</header>
+
+<!-- ===================== MAIN ===================== -->
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">College Cultural &amp; Tech Fest</p>
+      <h1 class="hero-title">
+        Everything is a <em>current.</em><br>
+        Follow the <span class="flow-word">Pravah<span class="flow-underline" aria-hidden="true"></span></span>.
+      </h1>
+      <p class="hero-sub">
+        Three days of music, code, art and ideas — flowing into one fest.
+        Gates open <strong>1st January</strong>. The countdown below is running whether you watch it or not.
+      </p>
+      <div class="hero-cta">
+        <a href="#register" class="btn btn-solid btn-lg">Reserve your spot</a>
+        <a href="#countdown" class="btn btn-ghost btn-lg">Watch the timer ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section class="countdown-section" id="countdown">
+    <div class="container">
+      <p class="section-eyebrow">Time until doors open</p>
+      <h2 class="section-title">The clock is already flowing</h2>
+
+      <div class="countdown-wrap" role="timer" aria-live="off">
+        <div class="countdown-unit">
+          <div class="flip-card" data-unit="days">
+            <div class="flip-fill" style="--level: 0%"></div>
+            <span class="flip-value" id="daysVal">00</span>
+          </div>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-sep" aria-hidden="true">:</div>
+        <div class="countdown-unit">
+          <div class="flip-card" data-unit="hours">
+            <div class="flip-fill" style="--level: 0%"></div>
+            <span class="flip-value" id="hoursVal">00</span>
+          </div>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-sep" aria-hidden="true">:</div>
+        <div class="countdown-unit">
+          <div class="flip-card" data-unit="minutes">
+            <div class="flip-fill" style="--level: 0%"></div>
+            <span class="flip-value" id="minutesVal">00</span>
+          </div>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-sep" aria-hidden="true">:</div>
+        <div class="countdown-unit">
+          <div class="flip-card" data-unit="seconds">
+            <div class="flip-fill" style="--level: 0%"></div>
+            <span class="flip-value" id="secondsVal">00</span>
+          </div>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+
+      <p class="countdown-target">Target: <span id="targetDateText">1 January, 12:00 AM</span> · your local time</p>
+      <p class="countdown-live" id="countdownLiveMsg" hidden>Pravah is live right now. See you at the gates. 🎉</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="container about-grid">
+      <div class="about-copy">
+        <p class="section-eyebrow">What is Pravah</p>
+        <h2 class="section-title">A fest built like a river</h2>
+        <p>
+          Pravah means <em>flow</em> — and that's exactly the shape of the fest.
+          Three streams run in parallel across three days: a tech stream for builders,
+          a culture stream for performers, and an open stream for whoever just wants to wander in.
+        </p>
+        <p>
+          No single stage, no single track. Pick a current and follow it, or drift between all three.
+        </p>
+      </div>
+      <div class="about-streams">
+        <div class="stream-card">
+          <span class="stream-index">Stream 01</span>
+          <h3>Code &amp; Build</h3>
+          <p>Hackathons, robotics, and a 24-hour build sprint.</p>
+        </div>
+        <div class="stream-card">
+          <span class="stream-index">Stream 02</span>
+          <h3>Stage &amp; Sound</h3>
+          <p>Live bands, open mic nights, and the closing headline act.</p>
+        </div>
+        <div class="stream-card">
+          <span class="stream-index">Stream 03</span>
+          <h3>Art &amp; Ideas</h3>
+          <p>Installations, talks, and a quiet corner for board games.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="schedule-section" id="schedule">
+    <div class="container">
+      <p class="section-eyebrow">Three days, one flow</p>
+      <h2 class="section-title">Schedule at a glance</h2>
+      <div class="schedule-grid">
+        <div class="day-card">
+          <h3>Day 1 — Jan 1</h3>
+          <ul>
+            <li>10:00 — Gates open &amp; welcome</li>
+            <li>13:00 — Hackathon kickoff</li>
+            <li>19:00 — Opening night gig</li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <h3>Day 2 — Jan 2</h3>
+          <ul>
+            <li>11:00 — Robotics arena</li>
+            <li>15:00 — Art walk &amp; talks</li>
+            <li>20:00 — Open mic</li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <h3>Day 3 — Jan 3</h3>
+          <ul>
+            <li>12:00 — Hackathon demos</li>
+            <li>17:00 — Prize ceremony</li>
+            <li>21:00 — Closing headline act</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTER / AUTH -->
+  <section class="auth-section" id="register">
+    <div class="container auth-grid">
+      <div class="auth-copy">
+        <p class="section-eyebrow">Join the current</p>
+        <h2 class="section-title">Register for Pravah</h2>
+        <p>
+          Create an account with your email and a password to reserve your entry.
+          Already registered? Switch to log in on the right.
+        </p>
+        <ul class="auth-points">
+          <li>Instant confirmation, no payment needed for entry passes.</li>
+          <li>One account covers all three days.</li>
+          <li>You can log in again any time to check your status.</li>
+        </ul>
+      </div>
+
+      <div class="auth-card" id="authCard">
+        <div class="auth-tabs" role="tablist">
+          <button class="auth-tab is-active" id="tabRegister" role="tab" aria-selected="true" type="button">Register</button>
+          <button class="auth-tab" id="tabLogin" role="tab" aria-selected="false" type="button">Log in</button>
+        </div>
+
+        <!-- Register form -->
+        <form class="auth-form is-active" id="registerForm" novalidate>
+          <label class="field">
+            <span class="field-label">Email</span>
+            <input type="email" name="email" id="regEmail" placeholder="you@example.com" autocomplete="email" required>
+            <span class="field-error" id="regEmailError"></span>
+          </label>
+          <label class="field">
+            <span class="field-label">Password</span>
+            <div class="password-wrap">
+              <input type="password" name="password" id="regPassword" placeholder="At least 6 characters" autocomplete="new-password" required minlength="6">
+              <button type="button" class="pw-toggle" data-target="regPassword" aria-label="Show password">👁</button>
+            </div>
+            <span class="field-error" id="regPasswordError"></span>
+          </label>
+          <label class="field">
+            <span class="field-label">Confirm password</span>
+            <div class="password-wrap">
+              <input type="password" name="confirm" id="regConfirm" placeholder="Repeat your password" autocomplete="new-password" required>
+              <button type="button" class="pw-toggle" data-target="regConfirm" aria-label="Show password">👁</button>
+            </div>
+            <span class="field-error" id="regConfirmError"></span>
+          </label>
+          <button type="submit" class="btn btn-solid btn-block">Create account</button>
+          <p class="form-note" id="registerNote" role="status"></p>
+        </form>
+
+        <!-- Login form -->
+        <form class="auth-form" id="loginForm" novalidate>
+          <label class="field">
+            <span class="field-label">Email</span>
+            <input type="email" name="email" id="logEmail" placeholder="you@example.com" autocomplete="email" required>
+            <span class="field-error" id="logEmailError"></span>
+          </label>
+          <label class="field">
+            <span class="field-label">Password</span>
+            <div class="password-wrap">
+              <input type="password" name="password" id="logPassword" placeholder="Your password" autocomplete="current-password" required>
+              <button type="button" class="pw-toggle" data-target="logPassword" aria-label="Show password">👁</button>
+            </div>
+            <span class="field-error" id="logPasswordError"></span>
+          </label>
+          <button type="submit" class="btn btn-solid btn-block">Log in</button>
+          <p class="form-note" id="loginNote" role="status"></p>
+        </form>
+
+        <div class="auth-success" id="authSuccess" hidden>
+          <span class="auth-success-icon" aria-hidden="true">✓</span>
+          <h3>You're in the flow</h3>
+          <p>Logged in as <strong id="authSuccessEmail"></strong>. See you at the gates on 1st January.</p>
+          <button class="btn btn-ghost" id="authSwitchAccount" type="button">Use a different account</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">PRAVAH<span class="brand-year">’27</span></span>
+      <p>The fest that flows. 1st – 3rd January.</p>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#about">About</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#countdown">Countdown</a>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <a href="#register" id="footerRegisterLink">Register</a>
+        <a href="#register" id="footerLoginLink">Log in</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:hello@pravah.fest">hello@pravah.fest</a>
+        <a href="tel:+911234567890">+91 12345 67890</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>© 2027 Pravah Fest Committee. Built for one night only.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
