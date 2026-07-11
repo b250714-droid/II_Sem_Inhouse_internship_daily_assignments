@@ -1,0 +1,30 @@
+body {
+text-align: center;
+font-family: Arial;
+background-color: #f5f5f5;
+}
+
+h1 {
+margin-top: 20px;
+}
+
+.info {
+margin: 20px;
+font-size: 20px;
+}
+
+#gameArea {
+width: 300px;
+height: 300px;
+margin: auto;
+border: 2px solid black;
+position: relative;
+background-color: white;
+}
+
+#fruit {
+width: 80px;
+position: absolute;
+cursor: pointer;
+display: none;
+}

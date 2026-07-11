@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Game</title>
+    <link  rel="stylesheet" href="game.css">
+</head>
+<body>
+    <h1>Fruit Game</h1>
+    <img id="apple" src="Apple.jpg" width="100px" height="100px">
+    <h2>Apple Count:
+        <span id="applecount">0</span>
+    </h2>
+    <img id="banana" src="banana.jpg" width="100px" height="100px">
+    <h2>Banana Count:
+        <span id="bananacount">0</span>
+    </h2>
+    <label>
+        <input type="radio" id="btn5" name="timer">5 seconds
+    </label>
+    
+    <label >
+        <input type="radio" id="btn10" name="timer">10 seconds
+    </label>
+    
+    <button id="startbtn">Start</button>
+
+    <h2>Time Left: <span id="timer">0</span></h2>
+    <h2 id="gameover"></h2>
+
+
+    <div id="gameArea"></div>
+    <script src="game.js"></script>
+</body>
+</html>
